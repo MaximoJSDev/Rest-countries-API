@@ -1,6 +1,21 @@
+const form = document.getElementById("form");
+const input = document.getElementById("input");
 const selectRegion = document.querySelector("select");
 const main = document.querySelector(".main");
 
+const formClient = (data) => {
+  form.addEventListener("keyup", (e) => {
+    e.preventDefault();
+    const inputValue = input.value.toLowerCase();
+    const inputFilter = data.filter((item) => {
+      const letterApi = item.name.common.toLowerCase();
+      if (letterApi.indexOf(inputValue) !== -1) {
+        return item;
+      }
+    });
+    cards(inputFilter);
+  });
+};
 const filter = (data) => {
   const query = selectRegion.value;
   if (query === "") cards(data);
@@ -14,7 +29,7 @@ const fechData = async () => {
   try {
     const res = await fetch("https://restcountries.com/v3.1/all");
     const data = await res.json();
-    console.log(data);
+    formClient(data)
     filter(data);
     selectRegion.addEventListener("change", () => filter(data));
   } catch (error) {
@@ -26,7 +41,7 @@ const cards = (data) => {
   data.forEach((item) => {
     elements += //Html
     `
-    <a target="_blank" href="country.html?name=${item.name.common}">
+    <a href="country.html?name=${item.name.common}">
       <article class="card">
         <img
         class="card__flag"
@@ -51,5 +66,4 @@ const cards = (data) => {
   });
   main.innerHTML = elements;
 };
-
 fechData();
