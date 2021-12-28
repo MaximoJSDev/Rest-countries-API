@@ -3,8 +3,20 @@ html {
   --Bg-Secondary: hsl(0, 0%, 100%);
   --Color-Text: hsl(200, 15%, 8%);
   --Color-Input: hsl(0, 0%, 52%);
-
-  box-sizing: border-box;
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    --Bg-Primary: hsl(207, 26%, 17%);
+    --Bg-Secondary: hsl(209, 23%, 22%);
+    --Color-Text: hsl(193, 100%, 95%);
+    --Color-Input: hsl(0, 0%, 92%);
+  }
+}
+html.light-mode {
+  --Bg-Primary: hsl(0, 0%, 98%);
+  --Bg-Secondary: hsl(0, 0%, 100%);
+  --Color-Text: hsl(200, 15%, 8%);
+  --Color-Input: hsl(0, 0%, 52%);
 }
 html.dark-mode {
   --Bg-Primary: hsl(207, 26%, 17%);
@@ -40,6 +52,7 @@ body {
   justify-content: center;
   column-gap: 10px;
   cursor: pointer;
+  user-select: none;
 }
 .fa-moon {
   height: 1.25em;
