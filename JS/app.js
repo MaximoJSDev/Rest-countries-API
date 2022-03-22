@@ -26,6 +26,7 @@ const filter = (data) => {
 };
 
 const fechData = async () => {
+  input.focus()
   try {
     const res = await fetch("https://restcountries.com/v3.1/all");
     const data = await res.json();
@@ -38,6 +39,9 @@ const fechData = async () => {
 };
 const cards = (data) => {
   let elements = "";
+  if (data.length == 0) {
+    elements += `<h3>No results</h3>`;
+  }
   data.forEach((item) => {
     elements += //Html
     `
