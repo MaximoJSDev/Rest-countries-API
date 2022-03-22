@@ -108,7 +108,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   align-items: center;
   justify-content: center;
-  margin: 40px 50px;
+  margin: 40px 5%;
   gap: 4.2em;
 }
 .card {
@@ -215,7 +215,7 @@ body {
 }
 @media (min-width: 1290px) {
   body {
-    font-size: 18px;
+    font-size: 17px;
   }
   .navbar {
     padding-left: 100px;
@@ -223,7 +223,7 @@ body {
     font-size: 20px;
   }
   .navbar__title {
-    font-size: 1.5em;
+    font-size: 1.35em;
   }
   .header {
     display: flex;
